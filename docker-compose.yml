@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: . # current directory
+    ports:
+      - "8000:8000" # host to image map
+    volumes:
+      - ./app:/app # automatically update changes made on local machine so that you dont have to restart docker
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
